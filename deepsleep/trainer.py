@@ -214,6 +214,8 @@ class DeepFeatureNetTrainer(Trainer):
         return total_y_true, total_y_pred, total_loss, duration
 
     def train(self, n_epochs, resume):
+        config = tf.ConfigProto()
+        config.gpu_options.allow_growth = True
         with tf.Graph().as_default(), tf.compat.v1.Session() as sess:
             # Build training and validation networks
             train_net = DeepFeatureNet(
@@ -542,6 +544,8 @@ class DeepSleepNetTrainer(Trainer):
 
     def finetune(self, pretrained_model_path, n_epochs, resume):
         pretrained_model_name = "deepfeaturenet"
+        config = tf.ConfigProto()
+        config.gpu_options.allow_growth = True
 
         with tf.Graph().as_default(), tf.compat.v1.Session() as sess:
             # Build training and validation networks

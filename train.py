@@ -13,7 +13,7 @@ from deepsleep.sleep_stage import (NUM_CLASSES,
 
 FLAGS = tf.app.flags.FLAGS
 
-tf.app.flags.DEFINE_string('data_dir', 'data',
+tf.app.flags.DEFINE_string('data_dir', './data/eeg_fpz_cz/',
                            """Directory where to load training data.""")
 tf.app.flags.DEFINE_string('output_dir', 'output',
                            """Directory where to save trained models """
